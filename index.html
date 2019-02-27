@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+    (async function (){
+        let listLinkCollection = await $.ajax({url: "http://localhost"});
+        for(let i = 0;i<listLinkCollection.length;i++){
+            let info = await $.ajax({
+                url: "http://localhost/product",
+                data: {
+                    link:listLinkCollection[i]
+                }
+            });
+            // Lấy info của product tại đây
+            console.log(info)
+        }
+    })();
+
+</script>
+</html>
